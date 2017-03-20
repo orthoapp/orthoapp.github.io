@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html ng-app="cabinet">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1" />
+    <title ng-bind="title">Онлайн анализ снимков ТРГ в ортодонтии &mdash; Orthoapp.ru</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link href="/vendor.2af26802b0897b9faf8e95e9640047f9.css" rel="stylesheet"><link href="/app.86568acf26f569539aa194f47daddeed.css" rel="stylesheet"></head>
+<body>
+<div class="page-loader" ng-show="pageLoader">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<header flex="100" layout="row" layout-align="start center">
+    <div flex layout="row" layout-align="start center">
+        <div class="logo">
+            <a href="#" ui-sref="/">
+                <md-icon class="md-mid-icon orange" md-svg-src="info:research"></md-icon>&nbsp;Orthoapp.ru
+            </a>
+        </div>
+        <a href="#" ng-if="!auth" ui-sref="login" class="menu-link">Вход</a>
+        <md-menu ng-if="auth">
+            <md-button ng-click="openMenu($mdMenu, $event)" title="Меню" aria-label="Меню" class="md-icon-button">
+                <md-icon class="primary" md-svg-src="navigation:menu"></md-icon>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button ng-click="$state.go('research.trg.list')">Мои снимки ТРГ</md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item>
+                    <md-button ng-click="logout()">Выход</md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+    <div flex layout="row" layout-align="end center" ng-if="auth">
+        <div class="header-user-name">
+            <md-icon md-svg-src="info:google-drive" ng-if="authService == 'google'"></md-icon>
+            <md-icon md-svg-src="info:yandex-disk" ng-if="authService == 'yandex'"></md-icon>
+            <md-icon md-svg-src="info:dropbox" ng-if="authService == 'dropbox'"></md-icon>
+            <span>{{user.userName}}</span>
+        </div>
+        <md-button ng-click="logout()" ng-if="auth" class="md-icon-button" aria-label="Выйти" title="Выйти">
+            <md-icon class="primary" md-svg-src="navigation:exit"></md-icon>
+        </md-button>
+    </div>
+</header>
+<section class="content-container" ui-view layout-align="center center">
+</section>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter42785214 = new Ya.Metrika({
+                    id:42785214,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/42785214" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script src="https://apis.google.com/js/api.js"></script>
+<script type="text/javascript" src="/vendor.165810fe3c8cc07e8dc6.js"></script><script type="text/javascript" src="/app.b8796c1ecbcefd18ebbf.js"></script></body>
+</html>
