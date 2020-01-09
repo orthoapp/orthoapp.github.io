@@ -1,1 +1,87 @@
-<!DOCTYPE html><html ng-app="cabinet"><head><meta charset="UTF-8"><meta name="viewport" content="initial-scale=1"><meta name="verify-reformal" content="64838783ba0b27d01d5b0474"><title ng-bind="title">Онлайн анализ снимков ТРГ в ортодонтии &mdash; Orthoapp.ru</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script type="text/javascript">!function(o){"http:"===o.protocol&&(o.protocol="https:")}(location)</script><link href="/vendor.67beef1f721ac8003ff25dccd6bf97db.css" rel="stylesheet"><link href="/app.86568acf26f569539aa194f47daddeed.css" rel="stylesheet"></head><body><div class="page-loader" ng-show="pageLoader"><md-progress-circular md-mode="indeterminate"></md-progress-circular></div><header flex="100" layout="row" layout-align="start center"><div flex layout="row" layout-align="start center"><div class="logo"><a href="#" ui-sref="/"><md-icon class="md-mid-icon orange" md-svg-src="info:research"></md-icon>&nbsp;Orthoapp.ru</a></div><a href="http://orthoapp.reformal.ru" class="menu-link" onclick="return Reformal.widgetOpen(),!1" onmouseover="Reformal.widgetPreload()">Задать вопрос</a><script type="text/javascript">var reformalOptions={project_id:978212,show_tab:!1,project_host:"orthoapp.reformal.ru"};!function(e,t){var r=e.createElement("script");r.type="text/javascript",r.async=!0,r.src=t.protocol+"media.reformal.ru/widgets/v3/reformal.js",e.getElementsByTagName("head")[0].appendChild(r)}(document,document.location)</script>&nbsp;&nbsp; <a href="#" ng-if="!auth" ui-sref="login" class="menu-link">Вход</a><md-menu ng-if="auth"><md-button ng-click="openMenu($mdMenu, $event)" title="Меню" aria-label="Меню" class="md-icon-button"><md-icon class="primary" md-svg-src="navigation:menu"></md-icon></md-button><md-menu-content width="4"><md-menu-item><md-button ng-click="$state.go('research.trg.list')">Мои снимки ТРГ</md-button></md-menu-item><md-menu-divider></md-menu-divider><md-menu-item><md-button ng-click="logout()">Выход</md-button></md-menu-item></md-menu-content></md-menu></div><div flex layout="row" layout-align="end center" ng-if="auth"><div class="header-user-name"><md-icon md-svg-src="info:google-drive" ng-if="authService == 'google'"></md-icon><md-icon md-svg-src="info:yandex-disk" ng-if="authService == 'yandex'"></md-icon><md-icon md-svg-src="info:dropbox" ng-if="authService == 'dropbox'"></md-icon><span>{{user.userName}}</span></div><md-button ng-click="logout()" ng-if="auth" class="md-icon-button" aria-label="Выйти" title="Выйти"><md-icon class="primary" md-svg-src="navigation:exit"></md-icon></md-button></div></header><section class="content-container" ui-view layout-align="center center"></section><script type="text/javascript">!function(e,t,a){(t[a]=t[a]||[]).push(function(){try{t.yaCounter42785214=new Ya.Metrika({id:42785214,clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0,trackHash:!0})}catch(e){}});var c=e.getElementsByTagName("script")[0],n=e.createElement("script"),r=function(){c.parentNode.insertBefore(n,c)};n.type="text/javascript",n.async=!0,n.src="https://mc.yandex.ru/metrika/watch.js","[object Opera]"==t.opera?e.addEventListener("DOMContentLoaded",r,!1):r()}(document,window,"yandex_metrika_callbacks")</script><noscript><div><img src="https://mc.yandex.ru/watch/42785214" style="position:absolute; left:-9999px;" alt=""></div></noscript><script src="https://apis.google.com/js/api.js"></script><script type="text/javascript" src="/meta.af5cb4f84cd3cdc7bfbe.js"></script><script type="text/javascript" src="/vendor.9106586bc51eb5341a02.js"></script><script type="text/javascript" src="/app.7ef456345da794bba36f.js"></script></body></html>
+<!DOCTYPE html>
+<html ng-app="cabinet">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1">
+        <title>Приложение для расчёта отродонтического лечения &mdash; Orthoapp.ru</title>
+        <script>
+            if (location.protocol == 'http:') {
+                location.protocol = 'https:';
+            }
+        </script>
+
+        <style>
+            html {
+                width: 100%;
+            }
+            body {
+                width: 800px;
+                padding: 50px;
+                margin: 0 auto;
+            }
+            p {
+                font-size: 16px;
+                line-height: 24px;
+            }
+            .wrapper {
+                width:860px;
+                max-width: 100%;
+                margin:0 auto;
+            }
+            img {
+                max-width:100%;
+            }
+
+            header {
+                width:270px;
+                float:left;
+            }
+            section {
+                width:500px;
+                max-width: 100%;
+                float:right;
+                padding-bottom:50px;
+            }
+            a {
+                color:#39c;
+                font-weight:400;
+                text-decoration:none;
+            }
+            a:hover, a:active {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Orthoapp</h1>
+            <p>Приложение для расчёта отродонтического лечения на основе ТРГ-снимков пациентов.</p>
+        </header>
+        <section>
+            <h2>О приложении</h2>
+            <p>Данное приложение позволяет произвести автоматический анализ снимка ТРГ по методу Alexander и спрогнозировать дальнейшее лечение.</p>
+            <p>Все пациенты и их снимки сохраняются в каталоге для дальнейшего анализа изменений.</p>
+
+            <h2>Скачать</h2>
+            <ul>
+                <li>
+                    <strong>Windows</strong> - <a href="https://github.com/orthoapp/orthoapp.github.io/releases/download/v0.0.2/orthoapp-0.0.2.Setup.exe" target="_blank">скачать</a>
+                </li>
+                <li>
+                    <strong>Ubuntu/Debian</strong> - <a href="https://github.com/orthoapp/orthoapp.github.io/releases/download/v0.0.2/orthoapp_0.0.2_amd64.deb" target="_blank">скачать</a>
+                </li>
+                <li>
+                    <strong>macOS</strong> - в процессе подготовки релиза
+                </li>
+            </ul>
+
+            <h2>Помощь</h2>
+            <p>
+                ВНИМАНИЕ! Приложение предназначено только для автоматизации ручного расчёта ТРГ-снимков и поставляется "как есть".
+            </p>
+            <p>
+                По всем вопросам работы приложения обращаться на e-mail:<br /><a href="mailto:maksim@kalyabin.ru" target="_blank">maksim@kalyabin.ru</a>
+            </p>
+        </section>
+    </body>
+</html>
