@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="cabinet">
+<html lang="ru">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="initial-scale=1">
-        <title>Приложение для расчёта отродонтического лечения &mdash; Orthoapp.ru</title>
+        <title>Программа для анализа ТРГ в боковой проекции в ортодонтии &mdash; Orthoapp.ru</title>
+        <meta name="description" content="Приложение для автоматического анализа телерентгенограммы (ТРГ) в боковой проекции для ортодонтов OrthoApp" />
         <script>
-            if (location.protocol == 'http:') {
+            if (location.protocol === 'http:') {
                 location.protocol = 'https:';
             }
         </script>
@@ -35,6 +36,7 @@
             header {
                 width:270px;
                 float:left;
+                text-align: center;
             }
             section {
                 width:500px;
@@ -54,21 +56,23 @@
     </head>
     <body>
         <header>
-            <h1>Orthoapp</h1>
-            <p>Приложение для расчёта отродонтического лечения на основе ТРГ-снимков пациентов.</p>
+            <img src="logo.svg" />
+            <h1>OrthoApp</h1>
+            <p>Приложение для автоматического анализа телерентгенограммы (ТРГ) в боковой проекции для ортодонтов.</p>
         </header>
         <section>
             <h2>О приложении</h2>
-            <p>Данное приложение позволяет произвести автоматический анализ снимка ТРГ по методу Alexander и спрогнозировать дальнейшее лечение.</p>
-            <p>Все пациенты и их снимки сохраняются в каталоге для дальнейшего анализа изменений.</p>
+            <p>Данное приложение позволяет произвести автоматический анализ снимка ТРГ и спрогнозировать дальнейшее ортодонтическое лечение пациентов.</p>
+            <p>OrthoApp сводит к минимуму ручной расчёт углов и других метрик на снимке ТРГ в боковой проекции, используя популярные методы определения диагноза.</p>
+            <p>Приложение поставляется полностью бесплатно.</p>
 
             <h2>Скачать</h2>
             <ul>
                 <li>
-                    <strong>Windows</strong> - <a href="https://github.com/orthoapp/orthoapp.github.io/releases/download/v0.0.3/orthoapp-0.0.3.Setup.exe" target="_blank">скачать</a>
+                    <strong>Windows</strong> - <a href="https://github.com/orthoapp/orthoapp.github.io/releases/download/v0.0.8/orthoapp-0.0.8.Setup.exe" onclick="ym(42785214,'reachGoal','download_windows'); return true;" target="_blank">скачать</a>
                 </li>
                 <li>
-                    <strong>Ubuntu/Debian</strong> - <a href="https://github.com/orthoapp/orthoapp.github.io/releases/download/v0.0.3/orthoapp_0.0.3_amd64.deb" target="_blank">скачать</a>
+                    <strong>Ubuntu/Debian</strong> - <a href="https://github.com/orthoapp/orthoapp.github.io/releases/download/v0.0.8/orthoapp_0.0.8_amd64.deb" onclick="ym(42785214,'reachGoal','download_debian')" target="_blank">скачать</a>
                 </li>
                 <li>
                     <strong>macOS</strong> - в процессе подготовки релиза
